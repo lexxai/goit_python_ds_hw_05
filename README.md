@@ -11,3 +11,12 @@
 - Порівняння моделей на основі однієї метрики(такої як `Accuracy`)- не приймається. 
 
 Дз повинно бути виконано у Jupyter Nootebook,(або Google Colab) і задеплоїне на Гітхаб у вигляді файлу .ipynb.
+
+
+
+# Виконнаня:
+
+- [goit_ds_hw_05.ipynb](goit_ds_hw_05.ipynb)
+
+- [Colab](https://colab.research.google.com/drive/1DD8nHq-iAc_k8v14iIDKtyw8NGoCkAyw?usp=sharing)
+
