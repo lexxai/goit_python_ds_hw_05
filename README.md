@@ -50,3 +50,51 @@
 ## Extra Tasks
 
 Крім того, модель SVC було доповнено функцією StandardScaler(), що призвело до незначного збільшення точності на 0,452%.
+```
+Data set: f0s1, shape: (193860, 31), model: SVC
+              precision    recall  f1-score   support
+
+        idle     1.0000    1.0000    1.0000     30672
+     walking     1.0000    1.0000    1.0000     30672
+     running     1.0000    1.0000    1.0000     30672
+      stairs     1.0000    1.0000    1.0000     30672
+
+    accuracy                         1.0000    122688
+   macro avg     1.0000    1.0000    1.0000    122688
+weighted avg     1.0000    1.0000    1.0000    122688
+--------------------------------------------------------------------------------
+Data set: f0s1, shape: (193860, 31), model: RandomForestClassifier
+              precision    recall  f1-score   support
+
+        idle     1.0000    1.0000    1.0000     30672
+     walking     1.0000    1.0000    1.0000     30672
+     running     1.0000    1.0000    1.0000     30672
+      stairs     1.0000    1.0000    1.0000     30672
+
+    accuracy                         1.0000    122688
+   macro avg     1.0000    1.0000    1.0000    122688
+weighted avg     1.0000    1.0000    1.0000    122688
+```
+
+- Для набору даних з 4 ознаками (f0s0) модель RandomForestClassifier показала кращі результати.
+- Для набору даних з 31 ознакою (f0s1) краще працює як RandomForestClassifier так і SVC + StandardScaler().
+- Для набору даних з 91 ознакою (f1s0) RandomForestClassifier працює краще.
+- Для набору даних зі 118 ознаками (f1s1) RandomForestClassifier працює краще.
+    
+Цей набір даних 'f0s1' досягнув ідеальної точності 1.0000, що робить його найвищим серед наданих наборів даних як для RandomForestClassifier так і SVC з StandardScaler().
+
+Час витарчений для навчання та прогнозування відповідно:
+```
+- classification: SVC
+CPU times: user 1min 28s, sys: 222 ms, total: 1min 28s
+Wall time: 1min 29s
+CPU times: user 28.9 s, sys: 22.1 ms, total: 28.9 s
+Wall time: 28.9 s
+-----------------------------------
+- classification: RandomForestClassifier
+CPU times: user 38.8 s, sys: 39.9 ms, total: 38.8 s
+Wall time: 38.9 s
+CPU times: user 828 ms, sys: 2 ms, total: 830 ms
+Wall time: 824 ms
+```
+Згідно цього вибору за рахункок швидкості виграє RandomForestClassifier.
