@@ -277,18 +277,18 @@ rundersampler = RandomUnderSampler(random_state=0)
 X_resampled, y_resampled = rundersampler.fit_resample(X, y)
 ```
 ```
-DATASET f1s0. shape: (6462, 91)
-class: 0, rows:    1039, idle   , prop: 0.1608
-class: 1, rows:    1850, walking, prop: 0.2863
-class: 2, rows:    3408, running, prop: 0.5274
-class: 3, rows:     165, stairs , prop: 0.02553
-X.shape=(6462, 90)
-X_resampled.shape=(660, 90)
-y_resampled.shape=(660,)
-class: 0, rows:     165, idle   , prop: 0.25
-class: 1, rows:     165, walking, prop: 0.25
-class: 2, rows:     165, running, prop: 0.25
-class: 3, rows:     165, stairs , prop: 0.25
+DATASET f0s1. shape: (193860, 31)
+class: 0, rows:   31170, idle   , prop: 0.1608
+class: 1, rows:   55500, walking, prop: 0.2863
+class: 2, rows:  102240, running, prop: 0.5274
+class: 3, rows:    4950, stairs , prop: 0.02553
+X.shape=(193860, 30)
+X_resampled.shape=(19800, 30)
+y_resampled.shape=(19800,)
+class: 0, rows:    4950, idle   , prop: 0.25
+class: 1, rows:    4950, walking, prop: 0.25
+class: 2, rows:    4950, running, prop: 0.25
+class: 3, rows:    4950, stairs , prop: 0.25
 ```
 ##### Classification report
 ```
