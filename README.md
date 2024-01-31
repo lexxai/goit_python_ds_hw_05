@@ -100,6 +100,7 @@ Wall time: 824 ms
 Згідно цього вибору за рахункок швидкості виграє RandomForestClassifier.
 
 ### Балансування записів з додаванням синтеничних данних
+#### SMOTE
 Додано додковий reshahping з викорисанням [SMOTE](https://medium.com/thecyphy/handling-imbalanced-datasets-with-imblearn-library-df5e58b968f4).
 
 Корий синтетично збалансував кількість класів у датасет в сторону збільшення.
@@ -121,7 +122,7 @@ class: 1, rows:  102240, walking, prop: 0.25
 class: 2, rows:  102240, running, prop: 0.25
 class: 3, rows:  102240, stairs , prop: 0.25
 ```
-#### Classification report
+##### Classification report
 ```
 limit_frames=None
 --------------------------------------------------------------------------------
@@ -266,4 +267,172 @@ Data set: f1s1, shape: (6462, 118), model: RandomForestClassifier
     accuracy                         0.9995      4090
    macro avg     0.9995    0.9995    0.9995      4090
 weighted avg     0.9995    0.9995    0.9995      4090
+```
+#### RandomUnderSampler
+Додано додковий reshahping з викорисанням [RandomUnderSampler](https://medium.com/thecyphy/handling-imbalanced-datasets-with-imblearn-library-df5e58b968f4).
+
+Корий синтетично збалансував кількість класів у датасет в сторону зменшення.
+```
+rundersampler = RandomUnderSampler(random_state=0)
+X_resampled, y_resampled = rundersampler.fit_resample(X, y)
+```
+```
+DATASET f1s0. shape: (6462, 91)
+class: 0, rows:    1039, idle   , prop: 0.1608
+class: 1, rows:    1850, walking, prop: 0.2863
+class: 2, rows:    3408, running, prop: 0.5274
+class: 3, rows:     165, stairs , prop: 0.02553
+X.shape=(6462, 90)
+X_resampled.shape=(660, 90)
+y_resampled.shape=(660,)
+class: 0, rows:     165, idle   , prop: 0.25
+class: 1, rows:     165, walking, prop: 0.25
+class: 2, rows:     165, running, prop: 0.25
+class: 3, rows:     165, stairs , prop: 0.25
+```
+##### Classification report
+```
+limit_frames=None
+--------------------------------------------------------------------------------
+Data set: f0s0, shape: (193860, 4), model: SVC
+              precision    recall  f1-score   support
+
+        idle     0.9601    0.9839    0.9718      9351
+     walking     0.8017    0.8979    0.8470     16650
+     running     0.9279    0.9052    0.9164     30672
+      stairs     1.0000    0.0054    0.0107      1485
+
+    accuracy                         0.8928     58158
+   macro avg     0.9224    0.6981    0.6865     58158
+weighted avg     0.8988    0.8928    0.8823     58158
+
+--------------------------------------------------------------------------------
+Data set: f0s0, shape: (193860, 4), model: RandomForestClassifier
+              precision    recall  f1-score   support
+
+        idle     0.9997    1.0000    0.9998      9351
+     walking     0.9995    0.9994    0.9994     16650
+     running     0.9995    0.9999    0.9997     30672
+      stairs     1.0000    0.9906    0.9953      1485
+
+    accuracy                         0.9996     58158
+   macro avg     0.9997    0.9975    0.9986     58158
+weighted avg     0.9996    0.9996    0.9996     58158
+
+--------------------------------------------------------------------------------
+Data set: f0s1, shape: (193860, 31), model: SVC
+              precision    recall  f1-score   support
+
+        idle     1.0000    1.0000    1.0000      1485
+     walking     1.0000    0.9778    0.9888      1485
+     running     1.0000    1.0000    1.0000      1485
+      stairs     0.9783    1.0000    0.9890      1485
+
+    accuracy                         0.9944      5940
+   macro avg     0.9946    0.9944    0.9944      5940
+weighted avg     0.9946    0.9944    0.9944      5940
+
+--------------------------------------------------------------------------------
+Data set: f0s1, shape: (193860, 31), model: SVC_Linear
+              precision    recall  f1-score   support
+
+        idle     1.0000    1.0000    1.0000      1485
+     walking     0.9882    0.9569    0.9723      1485
+     running     1.0000    1.0000    1.0000      1485
+      stairs     0.9582    0.9886    0.9732      1485
+
+    accuracy                         0.9864      5940
+   macro avg     0.9866    0.9864    0.9864      5940
+weighted avg     0.9866    0.9864    0.9864      5940
+
+--------------------------------------------------------------------------------
+Data set: f0s1, shape: (193860, 31), model: RandomForestClassifier
+              precision    recall  f1-score   support
+
+        idle     1.0000    1.0000    1.0000      1485
+     walking     1.0000    1.0000    1.0000      1485
+     running     1.0000    1.0000    1.0000      1485
+      stairs     1.0000    1.0000    1.0000      1485
+
+    accuracy                         1.0000      5940
+   macro avg     1.0000    1.0000    1.0000      5940
+weighted avg     1.0000    1.0000    1.0000      5940
+
+--------------------------------------------------------------------------------
+Data set: f1s0, shape: (6462, 91), model: SVC
+              precision    recall  f1-score   support
+
+        idle     1.0000    1.0000    1.0000        50
+     walking     0.8600    0.8776    0.8687        49
+     running     1.0000    1.0000    1.0000        50
+      stairs     0.8750    0.8571    0.8660        49
+
+    accuracy                         0.9343       198
+   macro avg     0.9337    0.9337    0.9337       198
+weighted avg     0.9344    0.9343    0.9343       198
+
+--------------------------------------------------------------------------------
+Data set: f1s0, shape: (6462, 91), model: SVC_Linear
+              precision    recall  f1-score   support
+
+        idle     0.9804    1.0000    0.9901        50
+     walking     0.7619    0.6531    0.7033        49
+     running     1.0000    0.9800    0.9899        50
+      stairs     0.6964    0.7959    0.7429        49
+
+    accuracy                         0.8586       198
+   macro avg     0.8597    0.8572    0.8565       198
+weighted avg     0.8610    0.8586    0.8579       198
+
+--------------------------------------------------------------------------------
+Data set: f1s0, shape: (6462, 91), model: RandomForestClassifier
+              precision    recall  f1-score   support
+
+        idle     1.0000    1.0000    1.0000        50
+     walking     0.8864    0.7959    0.8387        49
+     running     1.0000    1.0000    1.0000        50
+      stairs     0.8148    0.8980    0.8544        49
+
+    accuracy                         0.9242       198
+   macro avg     0.9253    0.9235    0.9233       198
+weighted avg     0.9260    0.9242    0.9240       198
+
+--------------------------------------------------------------------------------
+Data set: f1s1, shape: (6462, 118), model: SVC
+              precision    recall  f1-score   support
+
+        idle     1.0000    1.0000    1.0000        50
+     walking     0.9375    0.9184    0.9278        49
+     running     1.0000    1.0000    1.0000        50
+      stairs     0.9200    0.9388    0.9293        49
+
+    accuracy                         0.9646       198
+   macro avg     0.9644    0.9643    0.9643       198
+weighted avg     0.9647    0.9646    0.9646       198
+
+--------------------------------------------------------------------------------
+Data set: f1s1, shape: (6462, 118), model: SVC_Linear
+              precision    recall  f1-score   support
+
+        idle     1.0000    1.0000    1.0000        50
+     walking     0.8462    0.8980    0.8713        49
+     running     1.0000    1.0000    1.0000        50
+      stairs     0.8913    0.8367    0.8632        49
+
+    accuracy                         0.9343       198
+   macro avg     0.9344    0.9337    0.9336       198
+weighted avg     0.9350    0.9343    0.9343       198
+
+--------------------------------------------------------------------------------
+Data set: f1s1, shape: (6462, 118), model: RandomForestClassifier
+              precision    recall  f1-score   support
+
+        idle     1.0000    1.0000    1.0000        50
+     walking     1.0000    0.9796    0.9897        49
+     running     1.0000    1.0000    1.0000        50
+      stairs     0.9800    1.0000    0.9899        49
+
+    accuracy                         0.9949       198
+   macro avg     0.9950    0.9949    0.9949       198
+weighted avg     0.9951    0.9949    0.9949       198
 ```
