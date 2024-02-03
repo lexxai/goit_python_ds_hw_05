@@ -100,6 +100,14 @@ Wall time: 824 ms
 ```
 Згідно цього вибору за рахункок швидкості виграє RandomForestClassifier.
 
+Best Parameters of datast 'f0s1' with RandomForestClassifier model is :  
+  - 'n_estimators': 25
+  - 'min_samples_split': 20 
+  - 'min_samples_leaf': 2
+  - 'max_depth': 20
+
+Best Scoring: 1.00
+
 ### Балансування записів з додаванням синтеничних данних
 #### SMOTE
 Додано додковий reshahping з викорисанням [SMOTE](https://medium.com/thecyphy/handling-imbalanced-datasets-with-imblearn-library-df5e58b968f4).
