@@ -1,6 +1,6 @@
-# Домашнє завдання. Модуль 5. Інші алгоритми навчання з учителем. Метод опорних векторів - Support Vector Machine, SVM. Дерева рішень - RandomForestClassifier, XGBClassifier.
+# Модуль 5. Домашнє завдання. Інші алгоритми навчання з учителем. Метод опорних векторів - Support Vector Machine, SVM. Дерева рішень - RandomForestClassifier, XGBClassifier.
 
-*З циклу [домшніх завдвнь Python Data Science](https://github.com/lexxai/goit_python_data_sciense_homework).*
+*З циклу [домашніх завдань Python Data Science](https://github.com/lexxai/goit_python_data_sciense_homework).*
 
 В домашньому завданні до даного модулю ви потренуєтесь робити тестове завдання для влаштування на роботу. За даними акселерометра з мобільного телефону потрібно класифікувати, якою діяльністю займається людина: йде, стоїть, біжить чи йде по сходах. Знайти датасет ви можете за [посиланням](https://drive.google.com/file/d/1nzrtQpfaHL0OgJ_eXzA7VuEj7XotrSWO/view?usp=share_link).
 
