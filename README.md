@@ -108,6 +108,15 @@ Best Parameters of datast 'f0s1' with RandomForestClassifier model is :
 
 Best Scoring: 1.00
 
+Best Parameters of datast 'f0s1' with XGBClassifier model is :
+   - 'n_estimators': 1
+   - 'min_samples_split': 5
+   - 'min_samples_leaf': 4
+   - 'max_depth': 100
+
+Best Scoring: 1.00
+
+
 ### Балансування записів з додаванням синтеничних данних
 #### SMOTE
 Додано додковий reshahping з викорисанням [SMOTE](https://medium.com/thecyphy/handling-imbalanced-datasets-with-imblearn-library-df5e58b968f4).
